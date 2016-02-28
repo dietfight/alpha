@@ -4,6 +4,7 @@
 
 //Component paths
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 import Colors from "material-ui/lib/styles/colors"
 
@@ -19,29 +20,19 @@ class Header extends Component {
     return (
       <header className="clearfix" style={styles}>
 
-        <FlatButton
-          href="/" linkButton={true} hoverColor="transparent"
-          label="Diet Fight" />
+        <Link to="/">
+          <FlatButton hoverColor="transparent" label="Diet Fight" />
+        </Link>
 
         <div className="rfloat">
-          <FlatButton
-            href="/app/today" linkButton={true}
-            label="Today" />
-          <FlatButton
-            href="/app/planner" linkButton={true}
-            label="Planner" />
+          <Link to="/app/today"><FlatButton label="Today" /></Link>
+          <Link to="/app/planner"><FlatButton label="Planner" /></Link>
         </div>
 
         <div className="rfloat">
-          <FlatButton
-            href="/about" linkButton={true}
-            label="About" />
-          <FlatButton
-            href="/contact" linkButton={true}
-            label="Contact Us" />
-          <FlatButton
-            href="/login" linkButton={true}
-            label="Login" />
+          <Link to="/about"><FlatButton label="About" /></Link>
+          <Link to="/contact"><FlatButton label="Contact Us" /></Link>
+          <Link to="/login"><FlatButton label="Login" /></Link>
         </div>
       </header>
     );
