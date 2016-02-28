@@ -1,21 +1,47 @@
-/**
- * Created by Yash on 24/02/16.
- */
-
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
-new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
-  hot: true,
-  color: true,
-  progress: true,
-  historyApiFallback: true
-}).listen(3000, 'localhost', function (err, result) {
-    if (err) {
-      console.log(err);
+//import 'babel/polyfill';
+import _ from 'lodash';
+import bodyParser from 'body-parser';
+import express from 'express';
+import path from 'path';
+import apiRouter from './api/apiRouter'
+
+let appRouter = new express.Router();
+
+// Setup Express.js
+const app = express();
+
+// Makes configuration available to the application
+app.locals.hostname = process.env.HOST_NAME || 'localhost';
+app.locals.port = process.env.PORT || '5000';
+app.locals.protocol = process.env.PROTOCOL || 'http:';
+
+// Set's the host based on the configuration or from defaults
+const host = `${app.locals.protocol}//${app.locals.hostname}:${app.locals.port}`;
+
+// JSON parser
+app.use(bodyParser.json());
+
+// Serve's static files
+app.use('/static', express.static(__dirname + '/static'));
+
+app.use('/', function(req, res, next){
+  res.sendFile(path.join(__dirname, 'static', 'index.html'));
+});
+
+// Starts Express.js server
+(function initServer() {
+  app.listen(app.locals.port, () => {
+    if (process.send) {
+      process.send({
+        status: 'online',
+        port: app.locals.port
+      });
     }
 
-    console.log('Listening at localhost:3000');
+    console.log(`The server is running at ${host}`);
   });
+})();
+
+export default app;

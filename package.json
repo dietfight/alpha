@@ -1,9 +1,10 @@
 {
-  "name": "Simple-Notes-V2",
-  "version": "1.0.0",
-  "description": "A simple note taking app based on Material design and built using React-Redux.",
+  "name": "Diet.Fight",
+  "version": "0.0.1",
+  "description": "Simple app to remind you about your diet",
   "scripts": {
-    "start": "node server.js"
+    "bundle": "babel-node --presets es2015 task/bundle.js",
+    "start": "babel-node --presets es2015 server.js"
   },
   "repository": {
     "type": "git",
@@ -30,11 +31,15 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.11.0",
-    "webpack-stream": "^3.1.0"
+    "webpack-stream": "^3.1.0",
+    "babel": "~5.8.29"
   },
   "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.12.4",
     "lodash": "~3.10.1",
     "material-ui": "^0.14.4",
+    "path": "^0.12.7",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.4.0",
