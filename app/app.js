@@ -1,19 +1,23 @@
+//React
 import React from 'react'
 import { render } from 'react-dom'
+import { Router, browserHistory } from 'react-router'
+
+//Redux
 import { Provider } from 'react-redux'
-import Notebook from './components/notebook'
 import store from './store'
+
+//App stuff
+import routes from './routes'
 import Styles from '../less/main.less';
 
-import Utils from './utils.js';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 render(
-  // The top-level Provider is what allows us to `connect` components to the store
   <Provider store={store}>
-    <Notebook />
+    <Router history={ browserHistory } routes={routes} />
   </Provider>,
-  document.getElementById('app')
-)
+  document.getElementById('root')
+);
