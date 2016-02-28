@@ -1,13 +1,10 @@
 var config = require('./webpack.config');
 
-//import 'babel/polyfill';
 import _ from 'lodash';
 import bodyParser from 'body-parser';
 import express from 'express';
 import path from 'path';
 import apiRouter from './api/apiRouter'
-
-let appRouter = new express.Router();
 
 // Setup Express.js
 const app = express();

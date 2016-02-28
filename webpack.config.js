@@ -8,9 +8,9 @@ module.exports = {
     './app/app.js' // Appʼs entry point
   ],
   output: {
-    path: path.join(__dirname, 'build'),
-    publicPath: '/static/',
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'static'),
+    //publicPath: '/static/',
+    filename: 'init.js'
   },
   module: {
     loaders: [
