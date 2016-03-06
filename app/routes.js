@@ -14,11 +14,8 @@ import Login from './components/login'
 
 //Component paths
 import WorkSpace from './components/workspace'
-
 import DailyPlanner from './components/dailyPlanner'
 import Planner from './components/planner'
-
-//<IndexRoute component={HomePage} />
 
 export default (
   <Route path="/" component={Index}>
