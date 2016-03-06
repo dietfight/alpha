@@ -10,7 +10,11 @@ module.exports = function (app, passport) {
     res.sendFile('/dist/index.html', {root: '.'});
   });
 
+  app.get('/app/*', function(req, res) {
+    res.sendFile('/dist/index.html', {root: '.'});
+  });
+
   app.get('/something', function(req, res) {
-    res.send('Nigga!');
+    res.send('Niggas in paris!');
   });
 };

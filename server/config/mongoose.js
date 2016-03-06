@@ -11,7 +11,7 @@ module.exports = function () {
     if (err) {
       console.log('Error connecting to: ' + secrets.db + '. ' + err);
     } else {
-      console.log('Succeeded connected to: ' + secrets.db);
+      console.log('Mongoose connected to: ' + secrets.db);
     }
   });
 
