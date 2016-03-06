@@ -4,28 +4,16 @@
 import webpack from 'webpack' ;
 import config from '../webpack.config.js' ;
 
-var bundle = function ( options, callback ) {
+(function ( options ) {
   var bundler = webpack( config );
   var bundlerRunCount = 0;
 
-  function postBundle( error, stats ) {
+  bundler.run( function ( error, stats ) {
     if ( error ) {
-      //throw new plugins.util.PluginError('webpack', error);
+      console.log( "bundling failed with error:", error );
+      return;
     }
-
-    if ( ++bundlerRunCount === (options.watch ? config.length : 1) ) {
-      return callback();
-    }
-  }
-
-  if ( options.watch ) {
-    bundler.watch( 200, bundle );
-  } else {
-    bundler.run( postBundle );
-  }
-}
-
-bundle( {} , function () {
-  console.log( "done bundling" );
-} );
+    console.log( "done bundeling" );
+  } );
+})();
 
