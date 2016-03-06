@@ -2,6 +2,8 @@
  * Created by Yash on 28/02/16.
  */
 
+import axios from 'axios';
+
 //Component paths
 import React, { Component, PropTypes } from 'react'
 
@@ -19,6 +21,11 @@ import Divider from 'material-ui/lib/divider';
 
 class DailyPlanner extends Component {
   render() {
+    axios.get('/something')
+      .then(function (response) {
+        console.log(response.data);
+      });
+
     return (
       <Paper className="dietPlanner">
 
@@ -35,7 +42,7 @@ class DailyPlanner extends Component {
           />
 
 
-        <p>Meal Schedules</p>
+        <p>Meas Schedules</p>
 
         <TimePicker fullWidth={true}
                     floatingLabelText="Meal Time"

@@ -1,44 +1,18 @@
-var config = require('./webpack.config');
+/**
+ * Created by Yash on 24/02/16.
+ */
 
-import _ from 'lodash';
-import bodyParser from 'body-parser';
-import express from 'express';
-import path from 'path';
-import apiRouter from './api/apiRouter'
+var express = require('express');
+var app = express();
 
-// Setup Express.js
-const app = express();
+// Run webpack server
+require('./server/config/webpack')(app);
 
-// Makes configuration available to the application
-app.locals.hostname = process.env.HOST_NAME || 'localhost';
-app.locals.port = process.env.PORT || '5000';
-app.locals.protocol = process.env.PROTOCOL || 'http:';
+// Bootstrap mongoDb settings
+require('./server/config/mongoose')();
 
-// Set's the host based on the configuration or from defaults
-const host = `${app.locals.protocol}//${app.locals.hostname}:${app.locals.port}`;
+// Bootstrap express application settings
+require('./server/config/express')(app);
 
-// JSON parser
-app.use(bodyParser.json());
-
-// Serve's static files
-app.use('/static', express.static(__dirname + '/static'));
-
-app.use('/', function(req, res, next){
-  res.sendFile(path.join(__dirname, 'static', 'index.html'));
-});
-
-// Starts Express.js server
-(function initServer() {
-  app.listen(app.locals.port, () => {
-    if (process.send) {
-      process.send({
-        status: 'online',
-        port: app.locals.port
-      });
-    }
-
-    console.log(`The server is running at ${host}`);
-  });
-})();
-
-export default app;
+// Bootstrap routes
+require('./server/routes')(app);

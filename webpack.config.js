@@ -3,26 +3,37 @@ var path = require('path');
 
 module.exports = {
   entry: [
-    //'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
-    //'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-    './app/app.js' // Appʼs entry point
+    './app/app.js', // Appʼs entry point
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&overlay=true&noInfo=false&quiet=false'
   ],
   output: {
-    path: path.join(__dirname, 'static'),
-    //publicPath: '/static/',
-    filename: 'init.js'
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/static/',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
-      {test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/},
-      {test: /\.css$/, loader: "style!css"},
-      {test: /\.less/, loader: 'style!css-loader!less-loader'}
+      {
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel-loader'],
+        //include: path.join(__dirname, '..', 'app'),
+        exclude: path.join(__dirname, '/node_modules/')
+      },
+      {
+        test: /\.css$/,
+        loader: "style!css"
+      },
+      {
+        test: /\.less/,
+        loader: 'style!css-loader!less-loader'
+      }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.json']
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
