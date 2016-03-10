@@ -2,13 +2,21 @@
  * Created by Yash on 23/02/16.
  */
 
-
-import {uniqueId} from 'lodash'
-
 module.exports = function () {
-  var firstId = uniqueId();
 
   return {
-
+    dietView:{
+      setup: false,  // if new user  setup = true
+      mode:'TODAY',  //              mode = daily
+      diet:{
+        meals:[{}]
+      }
+    },
+    calendar:{
+      mode:'WEEK', // month
+      diets:[{},{}]
+    }
   };
 };
+
+
