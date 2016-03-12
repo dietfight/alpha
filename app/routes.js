@@ -6,16 +6,16 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 //Website paths
-import Index from './components/index'
-import HomePage from './components/web/home'
-import AboutPage from './components/web/about'
-import ContactPage from './components/web/contact'
-import Login from './components/login'
+import Index from './compenents/index'
+import HomePage from './compenents/web/home'
+import AboutPage from './compenents/web/about'
+import ContactPage from './compenents/web/contact'
+import Login from './compenents/login'
 
 //Component paths
-import WorkSpace from './components/workspace'
-import DailyPlanner from './components/dailyPlanner'
-import Planner from './components/planner'
+import WorkSpace from './compenents/workspace'
+import DailyPlanner from './compenents/dailyPlanner'
+import Planner from './compenents/planner'
 
 export default (
   <Route path="/" component={Index}>

@@ -8,7 +8,7 @@ import React, { Component, PropTypes } from 'react'
 import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 
-export default class Select extends React.Component {
+class Select extends React.Component {
 
   constructor(props) {
     super(props);

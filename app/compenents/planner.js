@@ -9,7 +9,7 @@ class Planner extends Component {
   render() {
     return (
       <div>
-        Planner
+        Pllanner
       </div>
     );
   }

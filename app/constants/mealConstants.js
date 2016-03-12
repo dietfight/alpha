@@ -1,0 +1,10 @@
+/**
+ * Created by Yash on 12/03/16.
+ */
+
+module.exports = {
+  ON_MEAL_SAVE: "ON_MEAL_SAVE",
+  ON_MEAL_CLONE: "ON_MEAL_CLONE",
+  ON_MEAL_DELETE: "ON_MEAL_DELETE",
+  ON_MEAL_DIET_ACTION: "ON_MEAL_DIET_ACTION"
+};
