@@ -14,7 +14,9 @@ class Meal extends Component {
   }
 
   onSummaryModeClick = () => {
-    this.setState({mode: 'edit'});
+    this.setState({
+      mode: 'edit'
+    });
   };
 
   onEditModeCancel = () => {
@@ -30,6 +32,7 @@ class Meal extends Component {
           {...this.props}
           /> :
         <MealSummaryView
+          dietMode={this.props.dietMode}
           onClick={this.onSummaryModeClick.bind(this)}
           />
       }

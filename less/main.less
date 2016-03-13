@@ -6,6 +6,7 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 15px;
 }
 
@@ -23,12 +24,67 @@ header {
   overflow: auto;
   //min-height: 800px;
   padding-top:80px;
-  background-color: #546e7a;
+  //background-color: #546e7a;
   padding-bottom: 100px;
 }
 
 .dietPlanner {
   max-width: 80%;
   margin: 0 auto;
-  padding: 20px;
+}
+
+.meal {
+  border-bottom: 1px solid #3db3ca;
+  background-color: #17a3bf;
+  color: white;
+}
+
+.meal--timer {
+  width: 50px;
+  display: table-cell;
+  height: 100%;
+  border-right: 2px dashed #3db3ca;
+  position: relative;
+}
+
+.meal--container {
+  display: table-cell;
+  padding: 20px 0 10px 30px;
+}
+
+.meal--clock {
+  fill: white !important;
+  position: absolute;
+  right: -12px;
+  width: 22px !important;
+  top: 15px;
+}
+
+.meal--time {
+  font-size: 11px;
+}
+
+.meal--name {
+  font-size: 25px;
+  margin-top:10px;
+}
+
+.meal--description {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.meal--actions {
+  margin-top: 10px;
+  margin-left: -5px;
+
+  .meal--action {
+    padding: 0 !important;
+    height: 35px !important;
+    width: 35px !important;
+  }
+
+  svg {
+    fill: white !important;
+    width: 15px !important;
+  }
 }
